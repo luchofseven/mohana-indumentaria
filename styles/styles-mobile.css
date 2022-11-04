@@ -39,7 +39,10 @@ img {
 .header {
     max-height: 60px;
     width: 100%;
-    margin-bottom: 65px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .header-article {
@@ -51,11 +54,6 @@ img {
     background-color: #ffffff;
     justify-content: space-between;
     padding: 0 1.5rem;
-    border-bottom: thin solid var(--second-color);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
 }
 
 .header-article a {
@@ -116,9 +114,11 @@ img {
 /* HERO */
 .hero {
     width: 100%;
-    margin-top: 0rem;
-    margin-bottom: -3rem;
-    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -2rem;
+    padding: 60px 0;
 }
 
 /* MAIN CONTAINER */
@@ -137,6 +137,7 @@ img {
 /* PRODUCTS SECTION */
 .products {
     width: 100%;
+    padding-top: 10px;
 }
 
 .cards {
@@ -168,6 +169,7 @@ img {
 /* SIZES GUIDE SECTION */
 .sizes-guide {
     margin: 2rem 0;
+    padding-top: 10px;
 }
 
 /* FOOTER */
