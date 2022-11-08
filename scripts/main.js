@@ -10,13 +10,24 @@ window.addEventListener("DOMContentLoaded", () => {
     dbProducts.forEach((doc) => {
       const product = doc.data();
 
-      html += `
+      if (product.stock === true) {
+        html += `
               <li class="card">
                 <img src=${product.img} alt=${product.name}>
                 <p>${product.name}</p>
                 <h5>$${product.price}</h5>
               </li>
       `;
+      } else {
+        html += `
+              <li class="card no-stock">
+                <img src=${product.img} alt=${product.name}>
+                <p>${product.name}</p>
+                <h5>$${product.price}</h5>
+                <p>SIN STOCK</p>
+              </li>
+      `;
+      }
     });
 
     $ulProducts.innerHTML = html;
@@ -24,16 +35,18 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 d.addEventListener("click", (e) => {
-  if (
-    e.target.matches(".header-article a") ||
-    e.target.matches(".header-article a *")
-  ) {
-    d.querySelector(".navbar").classList.add("is-active");
-    d.querySelector(".header-article").style.display = "none";
-  }
+  if (matchMedia("(max-width: 1023px)").matches) {
+    if (
+      e.target.matches(".header-article a") ||
+      e.target.matches(".header-article a *")
+    ) {
+      d.querySelector(".navbar").classList.add("is-active");
+      d.querySelector(".header-article").style.display = "none";
+    }
 
-  if (e.target.matches(".navbar a") || e.target.matches(".navbar a *")) {
-    d.querySelector(".navbar").classList.remove("is-active");
-    d.querySelector(".header-article").style.display = "flex";
+    if (e.target.matches(".navbar a") || e.target.matches(".navbar a *")) {
+      d.querySelector(".navbar").classList.remove("is-active");
+      d.querySelector(".header-article").style.display = "flex";
+    }
   }
 });
