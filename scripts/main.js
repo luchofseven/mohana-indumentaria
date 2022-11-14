@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", () => {
     dbProducts.forEach((doc) => {
       const product = doc.data();
 
-      if (product.stock === true) {
+      if (product.stock > 0) {
         html += `
               <li class="card">
                 <img src=${product.img} alt=${product.name}>
