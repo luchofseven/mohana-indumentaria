@@ -2,8 +2,7 @@ import { onGetProducts } from "./firestore.js";
 
 const d = document,
   $ulProducts = d.querySelector(".cards"),
-  $spinner = d.querySelector(".spinner"),
-  $spinnerContainer = d.querySelector(".spinner-container");
+  $spinner = d.querySelector(".spinner");
 
 window.addEventListener("DOMContentLoaded", () => {
   onGetProducts((dbProducts) => {
@@ -32,7 +31,6 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     });
     $spinner.classList.remove("is-active");
-    $spinnerContainer.style.display = "none";
     $ulProducts.innerHTML = html;
   });
 });
